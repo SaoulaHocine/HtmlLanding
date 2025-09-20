@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Our Landing Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="icon/BusinzesdsAsset 4gt.svg" type="image/svg+xml">
+    <!-- Include Font Awesome for 3D element -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a class="logo" href="#home" aria-label="Home">
+                <img src="icon/AppIcon.png" alt="App Logo">
+                <span class="brand-name">FileFlow</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>FileFlow</h1>
+                <p class="hero-slogan">Not organizing your files, But organizing your Day</p>
+                <div class="cta-buttons">
+                    <a class="cta-primary" href="https://github.com/SaoulaHocine/HtmlLanding/releases/download/FileFlowV1.0.0/FileFlow.Setup.0.1.0.exe" target="_blank" rel="noopener" aria-label="Download FileFlow for Windows (.exe)">Download</a>
+                    <a class="cta-secondary" href="https://saoulahocine.gumroad.com/l/FileFlow" target="_blank" rel="noopener" aria-label="Get License Key">Get Key License</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <!-- 3D Floating Folders -->
+                <div class="hero-image">
+                    <div class="folder-stack">
+                        <div class="folder folder-1">
+                            <i class="fa-solid fa-folder" aria-hidden="true"></i>
+                            <span>Documents</span>
+                        </div>
+                        <div class="folder folder-2">
+                            <i class="fa-solid fa-folder" aria-hidden="true"></i>
+                            <span>Images</span>
+                        </div>
+                        <div class="folder folder-3">
+                            <i class="fa-solid fa-folder" aria-hidden="true"></i>
+                            <span>Videos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition Section -->
+    <section id="value-proposition" class="value-proposition">
+        <div class="value-content">
+            <h2>Three-Step File Organization</h2>
+            <p class="value-description">A powerful UI to configure how files should be organized into folders. Currently runs as a safe dry-run with preview capabilities, designed for browser use with future Electron support.</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="card-icon" aria-hidden="true"><i class="fa-solid fa-folder-open"></i></div>
+                    <h3>Step 1: Folder Selection</h3>
+                    <p>Choose Copy or Move operations, select multiple source folders, include subfolders, and set destination with optional naming prefix</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="card-icon" aria-hidden="true"><i class="fa-solid fa-layer-group"></i></div>
+                    <h3>Step 2: Smart Grouping</h3>
+                    <p>Organize by category, date, extension, size, alphabetical order, or custom keywords with granular control and validation</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="card-icon" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Step 3: Conflict Resolution</h3>
+                    <p>Set destination subfolders and handle conflicts with rename, replace, or skip options for safe file management</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="card-icon" aria-hidden="true"><i class="fa-solid fa-eye"></i></div>
+                    <h3>Safe Dry-Run Preview</h3>
+                    <p>Preview all changes before execution with comprehensive summary panel showing operations, grouping details, and conflict handling</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <h2>Our Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="card-icon" aria-hidden="true"><i class="fa-solid fa-right-left"></i></div>
+                <h3>Copy or Move Selector</h3>
+                <p>Choose the operation up front with a clear, exclusive selector at the top of Step 1.</p>
+            </div>
+            <div class="feature-card">
+                <div class="card-icon" aria-hidden="true"><i class="fa-solid fa-folder-tree"></i></div>
+                <h3>Multi-Source & Subfolders</h3>
+                <p>Select multiple source folders, include subfolders, and optionally add a folder name prefix.</p>
+            </div>
+            <div class="feature-card">
+                <div class="card-icon" aria-hidden="true"><i class="fa-solid fa-layer-group"></i></div>
+                <h3>Smart Grouping Modes</h3>
+                <p>Organize by category, date, extension, size, alphabetical order, or keywords.</p>
+            </div>
+            <div class="feature-card">
+                <div class="card-icon" aria-hidden="true"><i class="fa-solid fa-list-check"></i></div>
+                <h3>Validated Controls</h3>
+                <p>Size ranges with strict validation, date granularity (day/month/year), and normalized keywords.</p>
+            </div>
+            <div class="feature-card">
+                <div class="card-icon" aria-hidden="true"><i class="fa-solid fa-code-branch"></i></div>
+                <h3>Destination & Conflicts</h3>
+                <p>Specify a destination subfolder and handle conflicts with rename, replace, or skip options.</p>
+            </div>
+            <div class="feature-card">
+                <div class="card-icon" aria-hidden="true"><i class="fa-solid fa-eye"></i></div>
+                <h3>Dry-Run with Summary</h3>
+                <p>Run a safe dry run and view a comprehensive summary of operation, grouping, and conflict settings.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-content">
+            <h2>About Us</h2>
+            <p><strong>FileFlow</strong> is a focused, three-step interface for organizing files into folders. It currently runs as a safe dry‑run in the browser so you can validate your setup before any real file operations, with an Electron mode planned for full system access.</p>
+            <p>Built with modern web tech — Next.js (App Router), React 18, TypeScript, Tailwind CSS, and shadcn/ui — it leverages the File System Access API in Chromium-based browsers for seamless folder selection.</p>
+            <ul class="about-highlights">
+                <li><i class="fa-solid fa-right-left" aria-hidden="true"></i> Clear Copy/Move selector right at the start</li>
+                <li><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Smart grouping by category, date, extension, size, A–Z, or keywords</li>
+                <li><i class="fa-solid fa-code-branch" aria-hidden="true"></i> Destination subfolders with conflict handling (rename, replace, skip)</li>
+                <li><i class="fa-solid fa-eye" aria-hidden="true"></i> Dry‑run flow with a comprehensive summary</li>
+            </ul>
+            <p>Next up: preferences persistence, preview of resulting folder names, and optional Electron integration for real copy/move with progress and safety prompts.</p>
+
+            <!-- Plans: Free vs Premium -->
+            <div class="plans-grid" role="list">
+                <div class="plan-card" role="listitem">
+                    <div class="plan-icon" aria-hidden="true"><i class="fa-solid fa-download"></i></div>
+                    <h3>Free Plan</h3>
+                    <p>Download and use FileFlow for free with core features to organize your files safely in dry‑run mode.</p>
+                    <ul class="plan-perks">
+                        <li><i class="fa-solid fa-check"></i> Copy/Move selection (dry‑run only)</li>
+                        <li><i class="fa-solid fa-check"></i> Multi-source folders & subfolders</li>
+                        <li><i class="fa-solid fa-check"></i> Group by date, extension, size, A–Z, keywords</li>
+                        <li><i class="fa-solid fa-check"></i> Conflict modes: rename, replace, skip</li>
+                    </ul>
+                    <a class="cta-primary" href="https://github.com/SaoulaHocine/HtmlLanding/releases/download/FileFlowV1.0.0/FileFlow.Setup.0.1.0.exe" target="_blank" rel="noopener" aria-label="Download FileFlow for Windows (.exe)">Download</a>
+                </div>
+
+                <div class="plan-card plan-premium" role="listitem">
+                    <div class="plan-icon" aria-hidden="true"><i class="fa-solid fa-crown"></i></div>
+                    <h3>Premium</h3>
+                    <p>Unlock advanced capabilities and upcoming pro features to supercharge your organization workflow.</p>
+                    <ul class="plan-perks">
+                        <li><i class="fa-solid fa-star"></i> Settings persistence (auto save/load)</li>
+                        <li><i class="fa-solid fa-star"></i> Preview of resulting folder names</li>
+                        <li><i class="fa-solid fa-star"></i> Electron integration for real copy/move</li>
+                        <li><i class="fa-solid fa-star"></i> Progress, safety prompts, and priority support</li>
+                    </ul>
+                    <a class="cta-secondary" href="https://saoulahocine.gumroad.com/l/FileFlow" target="_blank" rel="noopener" aria-label="Get License Key">Get License Key</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-form">
+            <form action="mailto:devbysh@gmail.com" method="post" enctype="text/plain">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 YourBrand. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#">Twitter</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 3D Folder Interactive Effect
+        (function () {
+            const container = document.querySelector('.hero-image');
+            if (!container) return;
+            const folders = Array.from(container.querySelectorAll('.folder'));
+            let rect = null;
+            function updateRect() { rect = container.getBoundingClientRect(); }
+            updateRect();
+            window.addEventListener('resize', updateRect);
+            container.addEventListener('mousemove', (e) => {
+                if (!rect) return;
+                const x = (e.clientX - rect.left) / rect.width - 0.5; // -0.5..0.5
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+                folders.forEach((el, i) => {
+                    const depth = 1 + i; // 1..3
+                    const maxTilt = 5;   // deg (increased)
+                    const tx = x * 10 * depth;  // px (increased)
+                    const ty = y * 10 * depth;  // px (increased)
+                    const rot = x * maxTilt * depth * 0.3;
+                    // Use transform addition without breaking CSS animations too much
+                    el.style.transform += ` translate(${tx}px, ${ty}px) rotate(${rot}deg)`;
+                    // Force reflow reset next frame to avoid compounding transforms
+                    requestAnimationFrame(() => {
+                        el.style.transform = '';
+                    });
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
