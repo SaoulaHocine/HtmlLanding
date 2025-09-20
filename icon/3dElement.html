@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floating Folders</title>
+    <!-- Include Font Awesome (icons) -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+          crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <style>
+        :root {
+          --primary-color: #000000;
+        }
+        /* Container */
+        .hero-image {
+          position: relative;
+          max-width: 800px;
+          height: 400px;
+          margin-left: 2rem;
+          perspective: 1000px;
+          transform-style: preserve-3d;
+        }
+        /* Stack wrapper */
+        .folder-stack {
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
+        /* Folder card */
+        .folder {
+          position: absolute;
+          background: #fff;
+          border-radius: 0 8px 8px 8px;
+          padding: 2rem 1.5rem 1.5rem;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+          display: flex;
+          align-items: center;
+          transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+          border: 1px solid rgba(0, 0, 0, 0.05);
+          overflow: hidden;
+        }
+        /* Folder tab (top strip) */
+        .folder::before {
+          content: '';
+          position: absolute;
+          top: 0; left: 0; right: 0;
+          height: 10px;
+          background: linear-gradient(90deg, #f0f0f0, #e0e0e0);
+          border-radius: 4px 4px 0 0;
+        }
+        /* Icon + label */
+        .folder i {
+          font-size: 2.5rem;
+          margin-right: 1.2rem;
+          color: var(--primary-color);
+          filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));
+        }
+        .folder span {
+          font-weight: 600;
+          font-size: 1.1rem;
+          color: #333;
+          text-shadow: 0 1px 1px rgba(0,0,0,0.05);
+        }
+        /* Positions and sizes */
+        .folder-1 {
+          width: 240px; height: 160px;
+          top: 20px; left: 50%;
+          transform: translateX(-50%) rotate(-3deg);
+          z-index: 3; background: #fff;
+          animation: float1 8s ease-in-out infinite;
+        }
+        .folder-2 {
+          width: 220px; height: 180px;
+          top: 40px; left: calc(50% - 80px);
+          transform: translateX(-50%) rotate(2deg);
+          z-index: 2; background: #f9f9f9;
+          animation: float2 10s ease-in-out infinite 0.5s;
+        }
+        .folder-3 {
+          width: 200px; height: 170px;
+          top: 30px; left: calc(50% + 60px);
+          transform: translateX(-50%) rotate(4deg);
+          z-index: 1; background: #f0f0f0;
+          animation: float3 9s ease-in-out infinite 1s;
+        }
+        /* Floating keyframes */
+        @keyframes float1 {
+          0%, 100% { transform: translateX(-50%) translateY(0) rotate(-3deg); }
+          50%      { transform: translateX(-50%) translateY(-15px) rotate(-5deg); }
+        }
+        @keyframes float2 {
+          0%, 100% { transform: translateX(-50%) translateY(0) rotate(2deg); }
+          50%      { transform: translateX(-50%) translateY(-20px) rotate(4deg); }
+        }
+        @keyframes float3 {
+          0%, 100% { transform: translateX(-50%) translateY(0) rotate(4deg); }
+          50%      { transform: translateX(-50%) translateY(-10px) rotate(2deg); }
+        }
+        /* Hover lift */
+        .folder:hover {
+          transform: translateY(-5px) rotate(0deg);
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+          z-index: 10;
+        }
+        .folder:hover::before {
+          background: linear-gradient(90deg, #e0e0e0, #d0d0d0);
+        }
+        /* Optional: mobile width tweak */
+        @media (max-width: 1024px) {
+          .hero-image { margin-left: 0; margin-top: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero image: 3 floating folders -->
+    <div class="hero-image">
+      <div class="folder-stack">
+        <div class="folder folder-1">
+          <i class="fa-solid fa-folder" aria-hidden="true"></i>
+          <span>Documents</span>
+        </div>
+        <div class="folder folder-2">
+          <i class="fa-solid fa-folder" aria-hidden="true"></i>
+          <span>Images</span>
+        </div>
+        <div class="folder folder-3">
+          <i class="fa-solid fa-folder" aria-hidden="true"></i>
+          <span>Videos</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Optional enhancement: subtle tilt on mouse move
+      (function () {
+        const container = document.querySelector('.hero-image');
+        if (!container) return;
+        const folders = Array.from(container.querySelectorAll('.folder'));
+        let rect = null;
+        function updateRect() { rect = container.getBoundingClientRect(); }
+        updateRect();
+        window.addEventListener('resize', updateRect);
+        container.addEventListener('mousemove', (e) => {
+          if (!rect) return;
+          const x = (e.clientX - rect.left) / rect.width - 0.5; // -0.5..0.5
+          const y = (e.clientY - rect.top) / rect.height - 0.5;
+          folders.forEach((el, i) => {
+            const depth = 1 + i; // 1..3
+            const maxTilt = 3;   // deg
+            const tx = x * 6 * depth;  // px
+            const ty = y * 6 * depth;  // px
+            const rot = x * maxTilt * depth * 0.2;
+            // Use transform addition without breaking CSS animations too much
+            el.style.transform += ` translate(${tx}px, ${ty}px) rotate(${rot}deg)`;
+            // Force reflow reset next frame to avoid compounding transforms
+            requestAnimationFrame(() => {
+              el.style.transform = '';
+            });
+          });
+        });
+      })();
+    </script>
+</body>
+</html>
